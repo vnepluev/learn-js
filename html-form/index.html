@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML forms</title>
+</head>
+
+<body>
+    <h1>Отправка формы на конференцию</h1>
+    <h2>Основные данные</h2>
+    <form action="#" method="get">
+        <h4>* Фамилия, Имя</h4>
+        <input type="text" name="fio" required>
+        <h4>Дата рождения</h4>
+        <input type="number" name="date" maxlength="10">
+        <h4>Пол</h4>
+        <input type="radio" name="m" id="m">
+        <label for="m">Муж</label>
+        <input type="radio" name="g" id="g">
+        <label for="g">Жен</label>
+        <h2>Данные для ЛК</h2>
+        <h4>* Адрес email</h4>
+        <input type="email" name="email" maxlength="254" required>
+        <h4>* Пароль</h4>
+        <input type="password" name="pass" required>
+        <h4>* Подтверждение пароля</h4>
+        <input type="password" name="pass1" required>
+        <h2>Материалы</h2>
+        <h4>* Тема доклада</h4>
+        <input type="text" name="theme" required>
+        <h4>* Основные тезисы</h4>
+        <textarea name="tezis" cols="30" rows="10" minlength="3"></textarea>
+        <h4>Документы</h4>
+        <input type="file" name="file">
+        <h4>Доп. опции</h4>
+        <ul>
+            <li><input type="checkbox" name="breakfast">Завтрак</li>
+            <li><input type="checkbox" name="dinner">Ужин</li>
+        </ul>
+
+        <p>H<sup>2</sup>SO<sub>4</sub></p>
+
+        <details>
+            <summary>Спойлер</summary>
+            Список
+        </details>
+
+        <ruby>
+            Ноябрь
+            <rt>23</rt>
+        </ruby>
+
+    </form>
+</body>
+
+</html>
