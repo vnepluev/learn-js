@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Формы rs.school JS DOM</title>
+</head>
+
+<body>
+
+    <form class="school-form" action="#" method="GET">
+        <legend>Please, register to Telegram</legend>
+
+        < class="field">
+            <div class="input-block">
+                <label for="name-input">Enter Name:</label>
+                <input type="text" name="" id="name-input">
+            </div>
+
+            <div class="input-block">
+                <label for="email-input">Enter Email:</label>
+                <input type="email" name="" id="email-input">
+            </div>
+
+            <div class="input-block">
+                <label for="password-input">Enter Password:</label>
+                <input type="password" name="" id="password-input">
+            </div>
+
+            <div class="input-block">
+                <label for="cpassword-input">Confirm Password:</label>
+                <input type="password" name="" id="cpassword-input">
+            </div>
+
+            <!-- <select id="input-country" size="1" multiple="false"> -->
+            <select id="input-country">
+                <option value="Russia">Russia</option>
+                <option value="English">English</option>
+                <option value="Belarus">Belarus</option>
+            </select>
+
+            <input list="lang" id="lang-input">
+
+            <!-- Дата лист может быть в другом месте, например за формой.
+            Однако это не изменит его функционала
+            несколько таких дата листов можно хранить отдельно от полей формы
+            -->
+            <datalist id="lang">
+                <option value="ru">Ru lang</option>
+                <option value="en"></option>
+                <option value="by"></option>
+            </datalist>
+            </input>
+            </fieldset>
+
+            <div class="input-block">
+                <label for="input-color">Выберите цвет</label>
+                <input type="color" id="input-color">
+            </div>
+
+            <div class="input-block">
+                <label for="input-check">License</label>
+                <input type="checkbox" id="input-check">
+            </div>
+
+            <button type="submit">Submit</button>
+            <button type="reset">Clear</button>
+    </form>
+
+    <script src="js.js"></script>
+</body>
+
+</html>
