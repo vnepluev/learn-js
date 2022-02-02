@@ -1,5 +1,6 @@
 import start from "./modules/start.js";
 import getFormPerson from "./modules/formPerson.js";
+import readyPlain from "./modules/readyPlain.js";
 
 const init = (selectorApp, title) => {
   const app = document.querySelector(selectorApp);
@@ -11,6 +12,7 @@ const init = (selectorApp, title) => {
     firstForm.remove();
 
     main.append(...forms);
+    readyPlain(forms, main);
   });
 };
 
