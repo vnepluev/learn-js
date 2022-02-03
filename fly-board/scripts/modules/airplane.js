@@ -1,4 +1,5 @@
 import createElement from "./createElement.js";
+import declOfNum from "./declOfnum.js";
 
 //
 const createCockpit = (title) => {
@@ -51,7 +52,7 @@ const createBlockSeat = (n, count) => {
       const check = createElement("input", {
         name: "seat",
         type: "checkbox",
-        value: `${i}${letter}`, // 40^00
+        value: `${i}${letter}`,
       });
 
       wrapperCheck.append(check);
@@ -68,7 +69,8 @@ const createBlockSeat = (n, count) => {
 };
 
 //
-const createAirplane = (title, scheme) => {
+const createAirplane = (title, tourData) => {
+  const scheme = tourData.scheme;
   const choisesSeat = createElement("form", {
     className: "choises-seat",
   });
@@ -97,14 +99,47 @@ const createAirplane = (title, scheme) => {
 
   plane.append(cockpit, ...elements);
   choisesSeat.append(plane);
-  return choisesSeat; // 26^39
+  return choisesSeat;
 };
 
-const airplane = (main, data) => {
-  const title = `Выберете места`;
-  const scheme = ["exit", 11, "exit", 1, "exit", 17, "exit"];
+const checkSeat = (form, data) => {
+  form.addEventListener("change", () => {
+    const formData = new FormData(form);
+    const checked = [...formData].map(([, value]) => value);
+    if (checked.length === data.length) {
+      [...form].forEach((item) => {
+        if (item.checked === false && item.name === "seat") {
+          item.disabled = true;
+        }
+      });
+    }
+  });
 
-  main.append(createAirplane(title, scheme));
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const booking = [...formData].map(([, value]) => value);
+
+    for (let i = 0; i < data.length; i++) {
+      data[i].seat = booking[i];
+    }
+
+    console.log(data);
+  });
+};
+
+const airplane = (main, data, tourData) => {
+  const title = `Выберете ${declOfNum(data.length, [
+    "место",
+    "места",
+    "мест",
+  ])}`;
+
+  const choiceForm = createAirplane(title, tourData);
+
+  checkSeat(choiceForm, data);
+
+  main.append(choiceForm);
 };
 
 export default airplane;
