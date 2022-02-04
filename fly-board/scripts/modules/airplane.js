@@ -124,7 +124,14 @@ const checkSeat = (form, data) => {
       data[i].seat = booking[i];
     }
 
-    console.log(data);
+    form.remove();
+
+    document.body.innerHTML = `
+    <h1 class="title">Спасибо, хорошего Вам полета!</h1>
+    <h2 class="title">${
+      booking.length === 1 ? `Ваше место ${booking}` : `Ваши места ${booking}`
+    }</h2>
+    `;
   });
 };
 
